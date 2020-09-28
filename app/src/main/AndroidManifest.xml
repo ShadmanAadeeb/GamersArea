@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AfterSignInActivity"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".MyContestsActivity" android:label="Upcoming Matches"></activity>
+        <activity android:name=".ProfileActivity" android:label="Profile"/>
+        <activity android:name=".AfterSignInActivity" android:label="Home"/>
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

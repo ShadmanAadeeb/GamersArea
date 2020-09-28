@@ -4,18 +4,16 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
-public class AfterSignInActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity {
     Button myContestsButton,genTVButton,ggTrendsButton,genStoreButton,profileButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_after_sign_in);
+        setContentView(R.layout.activity_profile);
         linkAllBottomButtons();
         addListenersToAllButtons();
     }
@@ -32,17 +30,17 @@ public class AfterSignInActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
-                        case MotionEvent.ACTION_DOWN:
-                            view.setBackgroundColor(Color.RED);
+                    case MotionEvent.ACTION_DOWN:
+                        view.setBackgroundColor(Color.RED);
 
-                            break;
-                        case MotionEvent.ACTION_UP:
-                            Intent intent=new Intent(AfterSignInActivity.this,MyContestsActivity.class);
-                            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                            startActivity(intent);
-                            view.setBackgroundColor(Color.WHITE);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        view.setBackgroundColor(Color.WHITE);
+                        Intent intent=new Intent(ProfileActivity.this,MyContestsActivity.class);
+                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
 
-                            break;
+                        break;
                 }
                 return false;
             }
@@ -99,25 +97,7 @@ public class AfterSignInActivity extends AppCompatActivity {
             }
         });
         /**********************MAKING PROFILE BUTTON INTERACTIVE********************************/
-        profileButton.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View view, MotionEvent motionEvent) {
-                switch (motionEvent.getAction()) {
-                    case MotionEvent.ACTION_DOWN:
-                        view.setBackgroundColor(Color.RED);
-
-                        break;
-                    case MotionEvent.ACTION_UP:
-                        view.setBackgroundColor(Color.WHITE);
-                        Intent intent=new Intent(AfterSignInActivity.this,ProfileActivity.class);
-                        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                        startActivity(intent);
-                        break;
-                }
-                return false;
-            }
-        });
+        /*NOT APPLICABLE HERE*/
 
     }
-
 }
